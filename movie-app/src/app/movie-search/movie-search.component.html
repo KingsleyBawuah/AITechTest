@@ -1,11 +1,18 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+  <h1 class="mat-h1">
+  Search
+  </h1>
+  <div class="search-bar">
+  <mat-form-field>
+    <input matInput placeholder="Search Films">
+  </mat-form-field>
+</div>
   <mat-grid-list cols="3" rowHeight="350px" gutterSize=2px>
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="1" [rowspan]="1">
+    <mat-grid-tile *ngFor="let movie of movieList" [colspan]="1" [rowspan]="2">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Movie Title
+            {{movie.Title}}
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -15,11 +22,12 @@
               <button mat-menu-item>Remove</button>
             </mat-menu>
           </mat-card-title>
-          <mat-card-subtitle>Release Date</mat-card-subtitle>
+          <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
 
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div><img mat-card-image src="../../assets/film-poster-placeholder.jpg" alt="Photo of a Shiba Inu"></div>
+        ng
+          <div><img mat-card-image src={{movie.Poster}} onError= "this.src='../../assets/film-poster-placeholder.jpg';"></div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
