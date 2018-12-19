@@ -9,7 +9,7 @@
   </div>
   <mat-divider></mat-divider>
   <mat-grid-list cols="3" rowHeight="350px" gutterSize=2px>
-    <mat-grid-tile *ngFor="let movie of movieList" [colspan]="1" [rowspan]="2">
+    <mat-grid-tile *ngFor="let movie of movieList" [colspan]="1" [rowspan]="2" >
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -32,6 +32,6 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator [length]="resCount" [pageSize]="10">
+  <mat-paginator [length]="resCount" [pageSize]="10"(page) = "pageEvent = nextMovies($event) ">
   </mat-paginator>
 </div>

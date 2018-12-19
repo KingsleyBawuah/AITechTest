@@ -21,7 +21,7 @@ import {
   MatOptionModule,
   MatInputModule,
   MatDividerModule,
-  MatPaginatorModule
+  MatPaginatorModule,
 } from '@angular/material';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieApiService } from './movie-api.service';
@@ -49,9 +49,9 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,  
   ],
   providers: [MovieApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -9,10 +9,12 @@ import { MovieApiService } from '../movie-api.service';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent {
-  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) { }
   movieList: Array<any>;
   movieTitle: string;
   resCount: number;
+
+
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -25,6 +27,15 @@ export class MovieSearchComponent {
   findMovies(): void {
     this.movieapi
       .searchMovies(this.movieTitle)
+      .subscribe(
+        data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
+      );
+  }
+
+  nextMovies(event){
+    console.log(event.pageIndex)
+    this.movieapi
+      .searchMovies(this.movieTitle, event.pageIndex + 1)
       .subscribe(
         data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
       );
