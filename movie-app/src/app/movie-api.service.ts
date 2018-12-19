@@ -8,7 +8,6 @@ export class MovieApiService {
   constructor(private http: HttpClient) {}
 
   api_key = 'f86c0e32';
-  movieTitle;
   pageNum = 1;
 
   initMovies() {
