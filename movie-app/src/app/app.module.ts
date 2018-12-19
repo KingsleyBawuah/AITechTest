@@ -7,15 +7,27 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatInputModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatInputModule,
+  MatDividerModule
+} from '@angular/material';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { MovieApiService } from './movie-api.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainNavComponent,
-    MovieSearchComponent
-  ],
+  declarations: [AppComponent, MainNavComponent, MovieSearchComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -33,9 +45,11 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatDividerModule
   ],
-  providers: [],
+  providers: [MovieApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -5,12 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  api_key = 'f86c0e32';
+  movieTitle;
+  pageNum = 1;
 
-  api_key = "f86c0e32";
-
-  searchMovies() {
+  initMovies() {
     return this.http.get('http://www.omdbapi.com/?s=matrix&page=1&apikey=' + this.api_key);
+  }
+
+  searchMovies(movieTitle: string) {
+    console.log(movieTitle);
+    return this.http.get('http://www.omdbapi.com/?s=' + movieTitle + '&apikey=' + this.api_key);
   }
 }

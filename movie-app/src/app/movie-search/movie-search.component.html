@@ -1,12 +1,13 @@
 <div class="grid-container">
-  <h1 class="mat-h1">
-  Search
-  </h1>
   <div class="search-bar">
-  <mat-form-field>
-    <input matInput placeholder="Search Films">
-  </mat-form-field>
-</div>
+    <mat-form-field>
+      <input matInput placeholder="Search Films" [(ngModel)]="movieTitle">
+    </mat-form-field>
+    <button mat-icon-button>
+      <mat-icon aria-label="Search" (click)=findMovies()>search</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
   <mat-grid-list cols="3" rowHeight="350px" gutterSize=2px>
     <mat-grid-tile *ngFor="let movie of movieList" [colspan]="1" [rowspan]="2">
       <mat-card class="dashboard-card">
@@ -26,10 +27,5 @@
 
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-        ng
-          <div><img mat-card-image src={{movie.Poster}} onError= "this.src='../../assets/film-poster-placeholder.jpg';"></div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+          <div><img mat-card-image src={{movie.Poster}} onError="this.src='../../assets/film-poster-placeholder.jpg';"></div>
+           </mat-card-content> </mat-card> </mat-grid-tile> </mat-grid-list> </div>
