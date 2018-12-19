@@ -20,3 +20,9 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+.remove-mat-pag-range{
+  .mat-paginator-range-label{
+    visibility: hidden;
+  }
+}

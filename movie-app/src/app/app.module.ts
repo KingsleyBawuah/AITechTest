@@ -26,6 +26,7 @@ import {
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieApiService } from './movie-api.service';
 import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, MainNavComponent, MovieSearchComponent],
@@ -49,7 +50,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     MatDividerModule,
-    MatPaginatorModule,  
+    MatPaginatorModule,
+    NgxPaginationModule  
   ],
   providers: [MovieApiService],
   bootstrap: [AppComponent]

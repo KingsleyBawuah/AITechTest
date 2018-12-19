@@ -14,14 +14,6 @@
         <mat-card-header>
           <mat-card-title>
             {{movie.Title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
           </mat-card-title>
           <mat-card-subtitle>{{movie.Year}}</mat-card-subtitle>
 
@@ -32,6 +24,6 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator [length]="resCount" [pageSize]="10"(page) = "pageEvent = nextMovies($event) ">
+  <mat-paginator [length]="resCount" [showFirstLastButtons]="true" [hidePageSize] = "true" [pageSize]="10"(page) = "pageEvent = nextMovies($event) ">
   </mat-paginator>
 </div>
