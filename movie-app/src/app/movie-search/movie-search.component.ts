@@ -9,7 +9,7 @@ import { MovieApiService } from '../movie-api.service';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent {
-  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) { }
   movieList: Array<any>;
   movieTitle = 'matrix';
   resCount: number;
@@ -26,6 +26,7 @@ export class MovieSearchComponent {
   }
   //Search movies by title.
   findMovies(): void {
+    //Reset page number to 0 in the event of a new search.
     this.currentPage = 1;
     this.movieapi
       .searchMovies(this.movieTitle)
@@ -33,7 +34,7 @@ export class MovieSearchComponent {
         data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
       );
   }
-  //Move through results
+  //Move through results using page numbers as a parameter.
   nextMovies(event) {
     this.currentPage = event;
 
@@ -42,6 +43,8 @@ export class MovieSearchComponent {
       .subscribe(
         data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
       );
+    //Scroll back to the top after loading new cards.
+    document.querySelector('.mat-sidenav-content').scrollTop = 0;
   }
 
   /** Based on the screen size render cards*/
