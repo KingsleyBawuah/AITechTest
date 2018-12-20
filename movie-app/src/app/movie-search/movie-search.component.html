@@ -9,7 +9,8 @@
   </div>
   <mat-divider></mat-divider>
   <mat-grid-list cols="3" rowHeight="350px" gutterSize=2px>
-    <mat-grid-tile *ngFor="let movie of movieList" [colspan]="1" [rowspan]="2" >
+    <mat-grid-tile *ngFor="let movie of movieList | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: resCount } "
+      [colspan]="1" [rowspan]="2">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -24,6 +25,10 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator [length]="resCount" [showFirstLastButtons]="true" [hidePageSize] = "true" [pageSize]="10"(page) = "pageEvent = nextMovies($event) ">
-  </mat-paginator>
+  <mat-divider></mat-divider>
+  <div class="controls">
+    <pagination-controls responsive="true" (pageChange)="nextMovies($event)"></pagination-controls>
+  </div>
+
+
 </div>

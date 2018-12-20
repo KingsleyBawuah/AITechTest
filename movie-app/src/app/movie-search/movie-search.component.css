@@ -21,8 +21,8 @@
   text-align: center;
 }
 
-.remove-mat-pag-range{
-  .mat-paginator-range-label{
-    visibility: hidden;
-  }
+.controls {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }

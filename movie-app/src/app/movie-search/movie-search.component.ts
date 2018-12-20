@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MovieApiService } from '../movie-api.service';
-import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-movie-search',
@@ -10,20 +9,24 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./movie-search.component.css']
 })
 export class MovieSearchComponent {
-  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) { }
+  constructor(private breakpointObserver: BreakpointObserver, private movieapi: MovieApiService) {}
   movieList: Array<any>;
-  movieTitle = "matrix";
+  movieTitle = 'matrix';
   resCount: number;
+  currentPage: number;
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class. Initlizes home page with "Matrix" results.
-    this.movieapi.initMovies().subscribe(
-      data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
-    );
+    this.movieapi
+      .initMovies()
+      .subscribe(
+        data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
+      );
   }
   //Search movies by title.
   findMovies(): void {
+    this.currentPage = 1;
     this.movieapi
       .searchMovies(this.movieTitle)
       .subscribe(
@@ -31,10 +34,12 @@ export class MovieSearchComponent {
       );
   }
   //Move through results
-  nextMovies(event){
-    console.log(event.pageIndex)
+  nextMovies(event) {
+    console.log(event);
+    this.currentPage = event;
+
     this.movieapi
-      .searchMovies(this.movieTitle, event.pageIndex + 1)
+      .searchMovies(this.movieTitle, event)
       .subscribe(
         data => ((this.movieList = data['Search']), (this.resCount = data['totalResults']))
       );

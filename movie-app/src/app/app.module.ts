@@ -21,12 +21,12 @@ import {
   MatOptionModule,
   MatInputModule,
   MatDividerModule,
-  MatPaginatorModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieApiService } from './movie-api.service';
 import { FormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, MainNavComponent, MovieSearchComponent],
@@ -51,9 +51,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormsModule,
     MatDividerModule,
     MatPaginatorModule,
-    NgxPaginationModule  
+    NgxPaginationModule
   ],
   providers: [MovieApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
