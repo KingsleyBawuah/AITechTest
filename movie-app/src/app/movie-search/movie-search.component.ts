@@ -35,7 +35,6 @@ export class MovieSearchComponent {
   }
   //Move through results
   nextMovies(event) {
-    console.log(event);
     this.currentPage = event;
 
     this.movieapi
@@ -45,7 +44,7 @@ export class MovieSearchComponent {
       );
   }
 
-  /** Based on the screen size, switch from standard to one column per row */
+  /** Based on the screen size render cards*/
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
