@@ -3,11 +3,17 @@
     <mat-form-field>
       <input matInput placeholder="Search Films, Series, and Games." [(ngModel)]="movieTitle">
     </mat-form-field>
-    <button mat-fab>
-      <mat-icon aria-label="Search" (click)=findMovies()>search</mat-icon>
+    <button mat-raised-button color="primary" (click)=findMovies()>
+      Search
     </button>
   </div>
   <mat-divider></mat-divider>
+  <div class="error">
+    <p *ngIf="!movieList">
+      The server responded with an error, please try again!
+    </p>
+  </div>
+
   <mat-grid-list cols="3" rowHeight="350px" gutterSize=2px>
     <mat-grid-tile *ngFor="let movie of movieList | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems: resCount } "
       [colspan]="1" [rowspan]="2">
@@ -25,6 +31,7 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
   <mat-divider></mat-divider>
   <div class="controls">
     <pagination-controls responsive="true" (pageChange)="nextMovies($event)"></pagination-controls>

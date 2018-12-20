@@ -23,13 +23,15 @@ import {
   MatDividerModule,
   MatPaginatorModule
 } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieApiService } from './movie-api.service';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, MovieSearchComponent],
+  declarations: [AppComponent, MainNavComponent, MovieSearchComponent, AboutPageComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -51,7 +53,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     MatDividerModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule
   ],
   providers: [MovieApiService],
   bootstrap: [AppComponent]
