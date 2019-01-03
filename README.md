@@ -1,6 +1,6 @@
 # MovieApp
 
-This application was created as part of the Technical Test at AVOXI for the position of Software Developer (December 2018)
+This application was created as part of a interview process for the position of Software Developer (December 2018)
 
 **Task**:
 
